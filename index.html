@@ -1,0 +1,73 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
+    <title>Document</title>
+    <style>
+        body {
+            background-image: url('https://wallpapers.com/images/hd/e-commerce-1920-x-1080-wallpaper-xi8lv0wk7n0zwq7w.jpg');
+            background-size: cover;
+            background-color: #b5e079; /* Fallback color if the image is not available or doesn't cover the entire body */
+        }
+
+        h4 {
+            text-align: center;
+            background-color: #7f6e6e;
+            padding: 10px;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">HOME</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/create"><u>Create_Account</u></a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/register" ><u>register</u></a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/links"><u>Links</u></a>
+                    </li>
+
+                    {% if request.user.is_authenticated %}
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="logout"><u>logout</u></a>
+                        </li>
+                    </ul>
+                    {% else %}
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/login"><u>login</u></a>
+                        </li>
+                    </ul>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Add the button with a reference to image.html -->
+    <div style="text-align: center; margin-top: 20px;">
+        <a href="/image" class="btn btn-primary">My Products</a>
+    </div>
+
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/popper.js' %}"></script>
+</body>
+</html>

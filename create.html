@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+body {
+font-family: Arial, sans-serif;
+background-color: #a1b178;
+margin: 0;
+padding: 0;
+}
+
+h1 {
+text-align: center;
+color: rgb(228, 215, 215); /* I assume you want white text color */
+background-color: #333; /* Add a background color for better visibility */
+padding: 10px;
+margin: 0;
+}
+
+form {
+margin-top: 20px;
+}
+
+table {
+border-collapse: collapse;
+width: 50%;
+margin: auto;
+}
+
+th, td {
+border: 1px solid #0c1104;
+padding: 8px;
+text-align: left;
+}
+
+th {
+background-color: #0f0814;
+color: rgb(101, 164, 187);
+}
+
+td {
+background-color: #6eccdb;
+}
+
+input[type="text"] {
+width: 100%;
+padding: 8px;
+box-sizing: border-box;
+}
+
+input[type="submit"] {
+background-color: #75c6e1;
+color: rgb(117, 45, 69);
+padding: 10px;
+border: none;
+cursor: pointer;
+width: 100%;
+}
+
+input[type="submit"]:hover {
+background-color: #5bae5f;
+}
+</style>
+
+<body>
+    <h1 align="center" color="white">Customer</h1>
+    <form method="POST" action="">
+
+        {% csrf_token %}
+        <table border="1" align="center">
+            <tr>
+                <td>Name</td>
+                <td><input type="text" name="name"></td>
+            </tr>
+            <tr>
+                <td>price</td>
+                <td><input type="text" name="price"></td>
+            </tr>
+            <tr>
+                <td>cat</td>
+                <td><input type="text" name="cat"></td>
+            </tr>
+            <tr>
+                <td>details</td>
+                <td><input type="text" name="details"></td>
+
+            </tr>
+            <tr>
+                <td colspan="2" align="center"><input type="submit" value="submit"></td>
+            </tr>
+
+
+            
+
+{% block content %}
+    <h2>Create a New Product</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+{% endblock %}
+    
+    </form>
+    </body>
+    </table>
+</html>

@@ -1,0 +1,109 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #a1b178;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: rgb(228, 215, 215);
+            /* I assume you want white text color */
+            background-color: #333;
+            /* Add a background color for better visibility */
+            padding: 10px;
+            margin: 0;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 50%;
+            margin: auto;
+        }
+
+        th,
+        td {
+            border: 1px solid #0c1104;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #0f0814;
+            color: rgb(101, 164, 187);
+        }
+
+        td {
+            background-color: #6eccdb;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #83dc0e;
+            color: rgb(69, 214, 178);
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #6c5bae;
+        }
+        
+    </style>
+</head>
+
+<body>
+    
+    <table border="3" align="center">
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>price</th>
+            <th>cat</th>
+            <th>details</th>
+            <th>image</th>
+            <th>edit</th>
+            <th>delete</th>
+            
+        </tr>
+        {% for x in data %}
+        <tr>
+            <td>{{x.id}}</td>
+            <td>{{x.name}}</td>
+            <td>{{x.price}}</td>
+            <td>{{x.cat}}</td>
+            <td>{{x.details}}</td>
+            <td><img src="{{ x.image.url }}" style="height: 30px;"> </td>
+            <td><a href="/edit/{{x.id}}">edit</a></td>
+            <td><a href="/delete/{{x.id}}">delete</a></td>
+        </tr>
+        {% endfor%}
+        <tr>
+            <td colspan="8" align="center"><a href="create">
+                    <button>Insert</button></td>
+
+
+
+
+    </table>
+</body>
+
+</html>
